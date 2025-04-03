@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    function debounce(){
+        setTimeout(function(){
+            populate 
+        })
+    }
+
+    async function calculateSI(){
+        p = document.getElementById("pri").value;
+        t = document.getElementById("time").value;
+        r = document.getElementById("rate").value;
+
+        const response= await fetch("http://localhost:3000/simpleInterest?p="+ p + "&t=" + t + "&r="+ r)
+        const result = await response.json()
+        console.log(result)
+        document.getElementById("finalsum").innerHTML= "The total is " + result.total + " and the Interest is "+ result.interest;
+    
+    }
+</script>
+<body>
+    <input type="text" placeholder="First Number" id="pri">
+    <br>
+    <input type="text" placeholder="Second Number" id="time">
+    <br>
+    <input type="text" placeholder="Second Number" id="rate">
+    <br>
+    <button onclick="calculateSI()">Calculate SI</button>
+    <div id="finalsum"></div>
+</body>
+</html>
